@@ -1,0 +1,15 @@
+ int strStr(string s1, string s2) {
+        long long n1=s1.length();
+        long long n2=s2.length();
+        for(long long i=0;i<=(n1-n2);i++)
+        {
+            for(long long j=0;j<n2;j++)
+            {
+                if(s1[i+j]!=s2[j])
+                break;
+                if(j==(n2-1))
+                return i;
+            }
+        }
+        return -1;
+    }
