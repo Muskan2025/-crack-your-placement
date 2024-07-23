@@ -1,0 +1,24 @@
+bool ispalindrome(string s)
+    {
+        int n=s.length();
+        for(int i=0;i<n/2;i++)
+        {
+           if(s[i]!=s[n-i-1])
+           return false;
+        }
+        return true;
+    }
+    bool validPalindrome(string s) {
+       int n=s.length();
+        for(int i=0;i<n/2;i++)
+        {
+           if(s[i]!=s[n-i-1])
+           {
+            int len=n-i-1-i;
+            if(ispalindrome(s.substr(i+1,len)) || ispalindrome(s.substr(i,len)))
+            return true;
+            return false;
+           }
+        }
+        return true;
+    }
