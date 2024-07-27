@@ -1,0 +1,17 @@
+vector<long long int> productExceptSelf(vector<long long int>& nums, int n) {
+       
+        //code here  
+        long long int pro;
+        vector<long long int>product(n);
+        for(int i=0;i<n;i++)
+        {
+            pro=1;
+            for(int j=0;j<n;j++)
+            {
+                if(i!=j)
+                pro*=nums[j];
+            }
+            product[i]=pro;
+        }
+        return product;
+    }
