@@ -1,0 +1,12 @@
+string convertToTitle(int col) {
+        string res;
+        while(col>0)
+        {
+            col--;
+            int rem=col%26;
+            res+=(rem+'A');
+            col/=26;
+        }
+        reverse(res.begin(),res.end());
+        return res;
+    }
