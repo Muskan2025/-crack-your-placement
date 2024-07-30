@@ -1,0 +1,16 @@
+int n=arr.size(),ceil;
+if(arr[0]>=x) ceil=arr[0];
+        for(int i=1;i<n;i++)
+        {
+            if(x==arr[i])
+            {
+                ceil=arr[i];
+                break;
+            }
+            else if(x>arr[i-1] && x<=arr[i])
+            {
+                ceil=arr[i];
+                break;
+            }
+        }
+cout<<ceil<<endl;
