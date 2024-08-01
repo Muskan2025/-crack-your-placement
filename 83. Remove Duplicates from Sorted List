@@ -1,0 +1,16 @@
+ListNode* deleteDuplicates(ListNode* head) {
+        ListNode* curr=head;
+        while(curr!=NULL)
+        {
+            if(curr->next!=NULL && curr->val==curr->next->val)
+            {
+                ListNode* nxt=curr->next->next;
+                ListNode* dlt=curr->next;
+                delete(dlt);
+                curr->next=nxt;
+            }
+            else
+            curr=curr->next;
+        }
+        return head;
+    }
