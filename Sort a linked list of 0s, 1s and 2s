@@ -1,0 +1,47 @@
+void insertionattail(Node *&tail,Node *&curr)
+    {
+        tail->next=curr;
+        tail=curr;
+    }
+    Node* segregate(Node *head) {
+        
+        // Add code here
+        Node * zerohead=new Node(-1);
+        Node * zerotail=zerohead;
+        Node * onehead=new Node(-1);
+        Node * onetail=onehead;
+        Node * twohead=new Node(-1);
+        Node * twotail=twohead;
+        
+        Node * temp=head;
+        while(temp!=NULL)
+        {
+            int val=temp->data;
+            if(val==0)
+            {
+                insertionattail(zerotail,temp);
+            }
+            else if(val==1)
+            {
+                insertionattail(onetail,temp);
+            }
+            else
+            {
+                insertionattail(twotail,temp);
+            }
+            temp=temp->next;
+        }
+        //merge the sublists
+        if(onehead->next!=NULL)
+        zerotail->next=onehead->next;
+        else
+        zerotail->next=twohead->next;
+        onetail->next=twohead->next;
+        twotail->next=NULL;
+        head=zerohead->next;
+        delete(onehead);
+        delete(zerohead);
+        delete(twohead);
+        return head;
+        
+    }
