@@ -1,0 +1,40 @@
+Node* reverseList(Node* head) {
+        Node* prev=NULL;
+        while(head!=NULL)
+        {
+            Node* nextt=head->next;
+            head->next=prev;
+            prev=head;
+            head=nextt;
+        }
+        return prev;
+    }
+class Solution
+{
+    public:
+    Node *compute(Node *head)
+    {
+        // your code goes temp=head;
+       head=reverseList(head);
+       Node* curr=head;
+       Node *prev=head;
+       int maxx=head->data;
+       head=head->next;
+       while(head)
+       {
+           if(head->data>=maxx)
+           {
+               maxx=head->data;
+               prev=head;
+               head=head->next;
+           }
+           else
+           {
+               prev->next=head->next;
+               head=head->next;
+           }
+       }
+       head=reverseList(curr);
+       return head;
+       
+    }
