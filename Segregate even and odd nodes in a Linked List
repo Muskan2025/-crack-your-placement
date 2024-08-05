@@ -1,0 +1,26 @@
+Node* divide(Node* head) {
+        // code here
+        if(head->next==NULL) return head;
+        Node* dummy1=new Node(-1);
+        Node* even=dummy1;
+        Node* dummy2=new Node(-1);
+        Node* odd=dummy2;
+        while(head!=NULL)
+        {
+            if(head->data%2==0)
+            {
+                even->next=head;
+                even=head;
+                head=head->next;
+            }
+            else
+            {
+                odd->next=head;
+                odd=head;
+                head=head->next;
+            }
+        }
+        odd->next=NULL;
+        even->next=dummy2->next;
+        return dummy1->next;
+    }
