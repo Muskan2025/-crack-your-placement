@@ -1,0 +1,28 @@
+//Brute force approach
+vector<int>v;
+        ListNode* temp=head;
+        int cnt=1;
+        while(temp)
+        {
+            if(cnt>=left && cnt<=right)
+            {
+                 v.push_back(temp->val);
+            }
+            temp=temp->next;
+            cnt++;
+        }
+        reverse(v.begin(),v.end());
+        ListNode* tempp=head;
+        int cntt=1;
+        int ind=0;
+        while(tempp)
+        {
+            if(cntt>=left && cntt<=right)
+            {
+                 tempp->val=v[ind];
+                ind++;
+            }
+            tempp=tempp->next;
+            cntt++;
+        }
+        return head;
