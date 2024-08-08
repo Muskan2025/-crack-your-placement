@@ -1,0 +1,39 @@
+ListNode* findmiddle(ListNode* head)
+    {
+        ListNode* slow=head,*fast=head;
+        while(fast && fast->next)
+        {
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        return slow;
+    }
+    ListNode* reverse(ListNode* head)
+    {
+        ListNode* prev=NULL;
+        ListNode* curr=head;
+        while(curr)
+        {
+            ListNode* nextt=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=nextt;
+        }
+        return prev;
+    }
+    void reorderList(ListNode* head) {
+        if(head->next==NULL) return;
+        ListNode* mid=findmiddle(head);
+        ListNode* revhead=reverse(mid);
+        ListNode* temp=head;
+        while(revhead->next)
+        {
+            ListNode* temprev=revhead->next;
+            ListNode* nextt=temp->next;
+            temp->next= revhead;
+            revhead->next=nextt;
+            temp=nextt;
+            revhead=temprev;
+        }
+
+    }
